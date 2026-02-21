@@ -7,9 +7,9 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // Default Axios base URL
+    // Default Axios base URL configured for Vercel deployment
     const http = axios.create({
-        baseURL: 'http://localhost:5000/api',
+        baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
     });
 
     useEffect(() => {
